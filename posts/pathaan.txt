@@ -1,0 +1,7 @@
+Title: Pathaan (2023)
+Image: pathaan_image_url_here
+Information: Bollywood, Action, Spy, Thriller
+Download Buttons:
+  480p: #link1
+  720p: #link2
+  1080p: #link3
