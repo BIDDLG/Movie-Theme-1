@@ -1,0 +1,191 @@
+/* General Body and Header Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f1f1f1;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: #fff;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1000;
+}
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+header a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Side Menu and Overlay */
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1500;
+}
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 2000;
+}
+.side-menu.active {
+    right: 0;
+}
+.close-icon {
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    text-align: right;
+    margin-bottom: 20px;
+}
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+.side-menu ul li {
+    margin: 15px 0;
+}
+.side-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Search Box */
+.search-container {
+    padding: 20px;
+    background-color: #f1f1f1;
+    margin-bottom: -12px;
+}
+.search-form {
+    display: flex;
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+.search-form input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 12px 15px;
+    font-size: 16px;
+    background: transparent;
+    color: #333;
+}
+.search-form button {
+    border: none;
+    background: #333;
+    color: #fff;
+    padding: 0 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s ease;
+}
+.search-form button:hover {
+    background: #555;
+}
+
+/* Homepage Posts Grid */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.post-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+}
+.post-card img {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    display: block;
+}
+.post-card-content {
+    padding: 15px;
+    text-align: center;
+}
+.post-card-content h2 {
+    font-size: 16px;
+    margin: 0 0 5px;
+    font-weight: 600;
+}
+ .post-card-content h2 a {
+    text-decoration: none;
+    color: inherit;
+}
+.post-card-content p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Styles for Single Post Page */
+.post-page-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.post-page-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+.post-page-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.post-page-container p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #444;
+}
