@@ -1,0 +1,4 @@
+Title: Pathaan
+Image: https://example.com/pathaan.jpg
+Information: Pathaan is a 2023 Indian action film starring Shah Rukh Khan.
+Download button: https://example.com/pathaan-download
