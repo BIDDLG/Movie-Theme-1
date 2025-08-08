@@ -1,107 +1,28 @@
-// ==========================================================
-// ==============  USER CONFIGURATION =======================
-// ==========================================================
-// अपनी थीम के यूजर को बस यह दो लाइनें बदलनी होंगी।
-const GITHUB_USER = 'your-github-username'; // अपना GitHub यूजरनेम यहाँ डालें
-const GITHUB_REPO = 'your-repo-name'; // अपनी रिपॉजिटरी का नाम यहाँ डालें
-// ==========================================================
+const movieFiles = ['Krrish.txt', 'Dhoom.txt', 'Pathaan.txt'];
+const container = document.getElementById('movies');
 
-// GitHub API का URL
-const API_URL = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/posts`;
+movieFiles.forEach(file => {
+  fetch('Posts/' + file)
+    .then(res => res.text())
+    .then(data => {
+      const movieDiv = document.createElement('div');
+      movieDiv.className = 'movie';
+      const lines = data.split('\n').filter(line => line.trim() !== '');
+      let title = lines.find(l => l.startsWith('Title:'))?.replace('Title:', '').trim();
+      let image = lines.find(l => l.startsWith('Image:'))?.replace('Image:', '').trim();
+      let infoIndex = lines.findIndex(l => l.startsWith('Information:'));
+      let info = infoIndex !== -1 ? lines.slice(infoIndex).join('\n').replace('Information:', '').trim() : '';
+      let download = lines.find(l => l.startsWith('Download button:'))?.replace('Download button:', '').trim();
 
-// हेल्पर फंक्शन: .txt फाइल के टेक्स्ट को ऑब्जेक्ट में बदलने के लिए
-function parsePostText(text) {
-    const post = { information: [], download_links: [] };
-    const lines = text.split('\n');
-    let readingButtons = false;
-
-    for (const line of lines) {
-        if (line.startsWith('Download Buttons:')) {
-            readingButtons = true;
-            continue;
-        }
-
-        if (readingButtons) {
-            if (line.trim() === '') continue;
-            if (!line.startsWith('  ')) { // अगर इंडेंटेशन खत्म हो गया
-                 readingButtons = false;
-            } else {
-                 const [quality, url] = line.trim().split(/:\s*/);
-                 if (quality && url) {
-                    post.download_links.push({ quality, url });
-                 }
-                 continue;
-            }
-        }
-        
-        const parts = line.split(/:\s*/);
-        if (parts.length < 2) continue;
-        
-        const key = parts[0].toLowerCase();
-        const value = parts.slice(1).join(':').trim();
-
-        if (key === 'title') post.title = value;
-        if (key === 'image') post.image = value;
-        if (key === 'information') post.information = value.split(',').map(item => item.trim());
-    }
-    return post;
-}
-
-
-// होमपेज को लोड करने का लॉजिक
-async function loadHomepage() {
-    const container = document.getElementById('posts-container');
-    try {
-        const response = await fetch(API_URL);
-        const files = await response.json();
-        
-        if (!Array.isArray(files)) {
-             container.innerHTML = '<h2>Error: Could not find posts. Check GitHub username/repo in script.js.</h2>';
-             return;
-        }
-
-        container.innerHTML = ''; // Clear loading message
-
-        for (const file of files) {
-            if (file.name.endsWith('.txt')) {
-                const postRes = await fetch(file.download_url);
-                const text = await postRes.text();
-                const post = parsePostText(text);
-                const postSlug = file.name.replace('.txt', '');
-
-                const postCard = `
-                    <a href="post.html?movie=${postSlug}" class="post-card">
-                        <img src="${post.image}" alt="${post.title}">
-                        <div class="post-card-content">
-                            <h2>${post.title}</h2>
-                        </div>
-                    </a>
-                `;
-                container.innerHTML += postCard;
-            }
-        }
-    } catch (error) {
-        console.error('Error loading posts:', error);
-        container.innerHTML = '<h2>Failed to load posts.</h2>';
-    }
-}
-
-
-// सिंगल पोस्ट पेज को लोड करने का लॉजिक
-async function loadPostPage() {
-    const container = document.getElementById('post-content-wrapper');
-    const params = new URLSearchParams(window.location.search);
-    const movieSlug = params.get('movie');
-
-    if (!movieSlug) {
-        container.innerHTML = '<h2>Movie not specified.</h2>';
-        return;
-    }
-    
-    try {
-        const postRes = await fetch(`posts/${movieSlug}.txt`);
-        const text = await postRes.text();
-        const post = parsePostText(text);
+      movieDiv.innerHTML = `
+        <h2>${title || file}</h2>
+        ${image ? `<img src="${image}" alt="${title}">` : ''}
+        <p>${info}</p>
+        ${download ? `<a href="${download}" target="_blank"><button>Download</button></a>` : ''}
+      `;
+      container.appendChild(movieDiv);
+    });
+});        const post = parsePostText(text);
 
         document.title = post.title; // पेज का टाइटल सेट करें
 
