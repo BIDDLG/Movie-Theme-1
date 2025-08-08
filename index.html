@@ -1,95 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>My Awesome Blog - Homepage</title>
-  <meta content="This is a sample description for the blog." name="description"/>
-  <meta name="robots" content="index, follow"/>
-  <link href="favicon.ico" rel="icon" type="image/x-icon"/>
-  
-  <!-- External Fonts and Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-  <meta name="theme-color" content="#ffffff"/>
-
-  <!-- हमारी CSS फ़ाइल को लिंक किया गया है -->
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>My Movie Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Header -->
-  <header>
-    <h1><a href="index.html">My Blog Name</a></h1>
-    <i class="fas fa-bars menu-icon" onclick="openMenu()"></i>
-  </header>
-
-  <!-- Search Box -->
-  <div class='search-container'>
-    <form class='search-form' action="#" method='get'>
-      <input name='q' placeholder='Search this blog...' type='text'/>
-      <button aria-label='Search' type='submit'><i class='fas fa-search'></i></button>
-    </form>
-  </div>
-
-  <!-- Overlay for menu -->
-  <div class="menu-overlay" onclick="closeMenu()"></div>
-
-  <!-- Sidebar Menu -->
-  <div class="side-menu">
-    <i class="fas fa-times close-icon" onclick="closeMenu()"></i>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </div>
-
-  <!-- Main Content Section -->
-  <main class='main'>
-    <div class='posts-grid'>
-      
-      <!-- Sample Post Card 1: Krrish -->
-      <!-- ध्यान दें: href का लिंक अब आपके पोस्ट फोल्डर की तरफ है -->
-      <div class='post-card'>
-        <a href='posts/krrish/index.html'>
-          <img alt='Krrish Post' src='https://via.placeholder.com/270x480/A9A9A9/FFFFFF?text=Krrish'/>
-        </a>
-        <div class='post-card-content'>
-          <h2><a href='posts/krrish/index.html'>Krrish Movie Details</a></h2>
-          <p>This post is about the Krrish movie. Click to read more about this awesome superhero film.</p>
+    <header><h1><a href="index.html">Movie Site</a></h1></header>
+    <main>
+        <div class="posts-grid" id="posts-container">
+            <h2><i class="fas fa-spinner fa-spin"></i> Loading Movies...</h2>
         </div>
-      </div>
-      
-      <!-- Sample Post Card 2 -->
-      <div class='post-card'>
-        <a href='#'>
-          <img alt='Post Title 2' src='https://via.placeholder.com/270x480/808080/FFFFFF?text=Post+Image'/>
-        </a>
-        <div class='post-card-content'>
-          <h2><a href='#'>Exploring a New Topic</a></h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
-        </div>
-      </div>
-
-      <!-- Sample Post Card 3 -->
-      <div class='post-card'>
-        <a href='#'>
-          <img src='https://via.placeholder.com/270x480.png?text=No+Image' alt='No Image Available'/>
-        </a>
-        <div class='post-card-content'>
-          <h2><a href='#'>Post Without a Featured Image</a></h2>
-          <p>Even without a featured image, the card layout remains consistent and clean for the user.</p>
-        </div>
-      </div>
-
-      <!-- आप और पोस्ट कार्ड बनाने के लिए ऊपर दिए गए 'post-card' div को कॉपी-पेस्ट कर सकते हैं -->
-
-    </div>
-  </main>
-
-  <!-- हमारी JavaScript फ़ाइल को बॉडी के अंत में लिंक किया गया है -->
-  <script src="script.js"></script>
-
+    </main>
+    <footer><p>&copy; 2024 Your Site</p></footer>
+    <script src="script.js"></script>
 </body>
 </html>
