@@ -1,0 +1,4 @@
+Title: Krrish
+Image: https://example.com/krrish.jpg
+Information: Krrish is a 2006 Indian sci-fi superhero film starring Hrithik Roshan.
+Download button: https://example.com/krrish-download
