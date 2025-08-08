@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Krrish Movie Details - My Awesome Blog</title>
+  <meta content="A detailed post about the Indian superhero movie, Krrish." name="description"/>
+  <meta name="robots" content="index, follow"/>
+  
+  <!-- External Fonts and Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <meta name="theme-color" content="#ffffff"/>
+
+  <!-- ध्यान दें: CSS फ़ाइल का पाथ ../../ है ताकि यह दो फोल्डर ऊपर जा सके -->
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+  <!-- Header (वही हेडर जो होमपेज पर है) -->
+  <header>
+    <!-- होमपेज पर वापस जाने के लिए लिंक -->
+    <h1><a href="../../index.html">My Blog Name</a></h1>
+    <i class="fas fa-bars menu-icon" onclick="openMenu()"></i>
+  </header>
+  
+  <!-- Overlay and Menu (ये भी वैसे ही रहेंगे) -->
+  <div class="menu-overlay" onclick="closeMenu()"></div>
+  <div class="side-menu">
+    <i class="fas fa-times close-icon" onclick="closeMenu()"></i>
+    <ul>
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Post Content -->
+  <main>
+    <div class="post-page-container">
+        <h1>All About the Movie Krrish</h1>
+        
+        <img src="https://via.placeholder.com/800x400/333333/FFFFFF?text=Krrish+Movie+Banner" alt="Krrish Movie Poster">
+
+        <p>
+            Krrish is a 2006 Indian Hindi-language superhero film directed and produced by Rakesh Roshan. It stars Hrithik Roshan and Priyanka Chopra in the lead roles, while Naseeruddin Shah, Rekha, Manini Mishra, Archana Puran Singh and Sharat Saxena feature in supporting roles.
+        </p>
+        <p>
+            It is the second installment in the Krrish franchise, being the sequel to Koi... Mil Gaya, and relates the story of Krishna, the son of the previous film's protagonists, who inherits his father's superhuman abilities. After falling in love with Priya, he follows her to Singapore, where he takes on the persona of "Krrish" to keep his identity secret while saving children from a burning circus. From that moment on he is regarded as a superhero, and must later thwart the plans of the evil Dr. Siddhant Arya, who has a connection to Krishna's father, Rohit Mehra.
+        </p>
+        <p>
+            The film was a major success at the box office and was the third highest-grossing Indian film of 2006.
+        </p>
+    </div>
+  </main>
+
+  <!-- JS फ़ाइल का पाथ भी ../../ है -->
+  <script src="../../script.js"></script>
+
+</body>
+</html>
